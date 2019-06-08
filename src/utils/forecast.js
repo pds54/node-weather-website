@@ -5,9 +5,9 @@ const forecast = (lat, long, callback) => {
 
   request({ url, json: true }, (error, { body }) => {
     if (error) {
-      callback(new Error('Unable to connect to weather service.'))
+      callback('Unable to connect to weather service.')
     } else if (body.error) {
-      callback(new Error('Unable to find location.'))
+      callback('Unable to find location.')
     } else {
       const { temperature, precipProbability } = body.currently
       const { summary, temperatureHigh, temperatureLow } = body.daily.data[0]
